@@ -16,7 +16,7 @@ class MascotasController extends Controller
     public function index(Request $Request)
     {
         $nombre = $Request->get('nombre');
-        $mascotas = MascotasModel::Search($Request->nombre)->orderBy('id', 'DESC')->paginate(4);
+        $mascotas = MascotasModel::Search($Request->nombre)->orderBy('id', 'DESC')->paginate(10);
         return view('mascotas.index', compact('mascotas'));
     }
 
