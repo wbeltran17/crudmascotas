@@ -40,7 +40,7 @@ Session::get('success')
                 </button>
             </div>
             <div class="col">
-                <a href="{{ route('mascotas.index') }}" class="btn btn-info">
+                <a href="{{ url('/') }}" class="btn btn-info">
                     <span class="glyphicon glyphicon-share-alt">
                         Atras
                     </span>

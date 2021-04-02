@@ -40,7 +40,7 @@ class MascotasController extends Controller
     {
         $this->validate($request, ['nombre' => 'required', 'raza' => 'required', 'edad' => 'required']);
         MascotasModel::create($request->all());
-        return redirect()->route('mascotas.index')->with('success', 'Registro creado satisfactoriamente');
+        return redirect('/mascotas')->with('success', 'Registro creado satisfactoriamente');
     }
 
     /**
@@ -78,7 +78,7 @@ class MascotasController extends Controller
     {
         $this->validate($request, ['nombre' => 'required', 'raza' => 'required', 'edad' => 'required']);
         MascotasModel::find($id)->update($request->all());
-        return redirect()->route('mascotas.index')->with('success', 'Registro actualizado satisfactoriamente');
+        return redirect('/mascotas')->with('success', 'Registro actualizado satisfactoriamente');
     }
 
     /**
@@ -90,6 +90,6 @@ class MascotasController extends Controller
     public function destroy($id)
     {
         MascotasModel::find($id)->delete();
-        return redirect()->route('mascotas.index')->with('success', 'Registro eliminado satisfactoriamente');
+        return redirect('/mascotas')->with('success', 'Registro eliminado satisfactoriamente');
     }
 }

@@ -15,41 +15,43 @@ Session::get('success')
 }
 @endif
 <div class="col-md-8">
-    <h2>Nueva Mascota</h2>
-    <table class="table">
-        <thead>
-            <th>
-                <h4>Nombre</h4>
-            </th>
-            <th>
-                <h4>Raza</h4>
-            </th>
-            <th>
-                <h4>Edad</h4>
-            </th>
-        </thead>
-        <form method="POST" action="{{ route('mascotas.store') }}" role="form">
-            {{ csrf_field() }}
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre de la Mascota">
-                    </td>
-                    <td>
-                        <input type="text" name="raza" id="raza" class="form-control input-sm" placeholder="Raza de la Mascota">
-                    </td>
-                    <td>
-                        <input type="text" name="edad" id="edad" class="form-control input-sm" placeholder="Edad de la Mascota">
-                    </td>
-                </tr>
-                <tr>
-                    <td><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk">
-                                Guardar</span></button></td>
-                    <td><a href="{{ route('mascotas.index') }}" class="btn btn-info"><span class="glyphicon glyphicon-share-alt"> Atras</span></a></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </form>
-    </table>
+    <h2>Editar Mascota</h2>
+
+
+    {!! Form::model($mascotas, ['route'=> [$mascotas->url(), $mascotas->id], 'method'=> $mascotas->method()])!!}
+
+<div class="form-group">
+    {!! Form::label('nombre','Nombre') !!}
+    {!! Form::text('nombre',null, ['class'=> 'form-control', 'placeholder' => 'Nombre de la Mascota']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('raza','Raza') !!}
+    {!! Form::text('raza',null, ['class'=> 'form-control', 'placeholder' => 'Raza de la Mascota']) !!}
+</div>
+
+
+<div class="form-group">
+    {!! Form::label('edad','Edad') !!}
+    {!! Form::text('edad',null, ['class'=> 'form-control', 'placeholder' => 'Edad de la Mascota']) !!}
+</div>
+
+
+<div class="form-group">
+
+   
+</div>
+<div class="row">
+    <div class="col">
+        {!! Form::submit('Guardar', ['class'=> 'btn btn-secondary']) !!}
+    </div>
+    <div class="col">
+        <a href="{{ url('/home') }}" class="btn btn-danger">
+            Atras
+        </a>
+    </div>
+</div>
+{!! Form::close() !!}
+
 </div>
 @endsection
